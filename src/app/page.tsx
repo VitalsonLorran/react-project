@@ -1,11 +1,11 @@
 "use client"
 import { students } from "@/students"
 import { useState } from "react"
+import { InputText } from "@/components/InputText"
 
 const Page = () => {
-  const studentsList = students
 
-  const [algoInput, setAlgoInput] = useState('')
+  const studentsList = students
 
   return (
     <div className="flex flex-col bg-black w-screen h-screen items-align items-center">
@@ -29,15 +29,7 @@ const Page = () => {
            }
         </ul>
       </div>
-      <div className="flex">
-        <input type="text"
-        className="border border-black p-1 text-xl text-black rounded"
-        placeholder="Digite algo"
-        value={algoInput}
-        onChange={e => setAlgoInput(e.target.value)}
-        /> <br />
-        {algoInput}
-      </div>
+      <InputText />
     </div>
   )
 }
