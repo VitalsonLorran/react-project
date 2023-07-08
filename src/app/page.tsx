@@ -19,23 +19,25 @@ const Page = () => {
         <ul className="flex flex-col justify-center items-center">
            {studentsList.length > 0 &&
             studentsList.map(i =>
-              <div className="flex justify-evenly p-1 w-4/5 bg-slate-500"> 
+              <div className="flex justify-around p-1 w-4/5 bg-slate-500"> 
                 <li className="flex  w-2/5">
                   <img src={i.avatar} alt={i.name} className=" h-10 w-10 rounded-full" />
                   <div className="pl-3">{i.name}
                   <p className="text-sm text-gray-400">{i.email}</p>
                   </div>
                   </li>
-                <li>Status</li>
+                <li>{i.active && <div className="px-2 py-1 inline-block rounded-md border border-green-800 bg-green-600 text-white text-xs">Active</div>}
+                    {!i.active && <div className="px-2 py-1 inline-block rounded-md border border-red-800 bg-red-600 text-white text-xs">Inactive</div>}
+                </li>
                 <li>{i.grade1}</li>
                 <li>{i.grade2}</li>
-                <li>Final grade</li>
+                <li>{i.active ? ((i.grade1 + i.grade2)/2).toFixed(1) : "--"}</li>
               </div>
               )
            }
         </ul>
       </div>
-      <InputText />
+      
     </div>
   )
 }
